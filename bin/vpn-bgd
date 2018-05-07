@@ -1,0 +1,18 @@
+#!/bin/sh
+
+help()
+{
+  echo "Usage:"
+  echo "$0 # Start jumpbox and connect to VPN"
+  echo "$0 SERVICE_NAME # Create tunnel to service named SERVICE_NAME"
+  echo "Available services: rancher"
+}
+
+if [ -z "$1" ]; then
+  docker run --rm -it --name jb-bgd --privileged -p 2222:22 -e SSH_AUTH_KEY="$(cat ~/.ssh/id_rsa.pub)" pntregistry.azurecr.io/bergendahls-jumpbox
+else
+  case "$1" in
+    "rancher") ssh -o "UserKnownHostsFile /dev/null" -o "StrictHostKeyChecking no" -nNT -L 8080:172.22.51.20:8080 root@localhost -p 2222 ;;
+    *) echo "No service named $1"; help ;;
+  esac
+fi
