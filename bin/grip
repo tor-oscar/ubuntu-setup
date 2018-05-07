@@ -1,0 +1,3 @@
+#!/bin/sh
+
+docker run -it --rm --name grip -v $(readlink -f $1):/data -v "$HOME/.grip":/.grip -p 8080:8080 mbentley/grip --context=username/repo README.md 0.0.0.0:8080
