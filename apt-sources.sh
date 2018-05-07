@@ -1,4 +1,4 @@
-zesty#!/bin/sh
+#!/bin/sh
 
 SCRIPT=$(readlink -f "$0")
 SETUP_PATH=$(dirname "$SCRIPT")
