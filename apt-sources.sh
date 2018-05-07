@@ -45,3 +45,7 @@ add-apt-repository ppa:remmina-ppa-team/remmina-next -y
 
 ### Slack
 curl -s https://packagecloud.io/install/repositories/slacktechnologies/slack/script.deb.sh | bash
+
+### Ansible
+apt-key adv --keyserver keyserver.ubuntu.com --recv-keys 93C4A3FD7BB9C367
+apt-add-repository "deb http://ppa.launchpad.net/ansible/ansible/ubuntu $REL_NAME main"
