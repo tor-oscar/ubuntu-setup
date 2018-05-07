@@ -42,3 +42,6 @@ echo "deb [arch=amd64] http://dl.google.com/linux/chrome/deb/ stable main" > /et
 
 ### remmina
 add-apt-repository ppa:remmina-ppa-team/remmina-next -y
+
+### Slack
+curl -s https://packagecloud.io/install/repositories/slacktechnologies/slack/script.deb.sh | bash
