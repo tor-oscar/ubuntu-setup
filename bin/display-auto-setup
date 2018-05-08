@@ -1,0 +1,12 @@
+#!/bin/sh
+
+xrandr_opts=$(xrandr | grep ' connected ' | cut -f1 -d' ' | while read dis; do
+  echo "--output $dis --auto"
+  if [ -n "$prev_dis" ]; then
+    echo "--right-of $prev_dis"
+  fi
+  prev_dis=$dis
+done | tr '\n' ' ')
+
+echo "Running: xrandr $xrandr_opts"
+xrandr $xrandr_opts
