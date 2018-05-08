@@ -30,21 +30,22 @@ echo "deb https://apt.iteas.at/iteas $LTS_REL_NAME main" > /etc/apt/sources.list
 
 ### Docker
 wget -q https://download.docker.com/linux/ubuntu/gpg -O- | apt-key add -
-deb [arch=amd64] https://download.docker.com/linux/ubuntu zesty stable
+echo "deb [arch=amd64] https://download.docker.com/linux/ubuntu zesty stable" > /etc/apt/sources.list.d/docker.list
 
 ### VirtualBox
 wget -q https://www.virtualbox.org/download/oracle_vbox_2016.asc -O- | apt-key add -
 wget -q https://download.virtualbox.org/virtualbox/debian/oracle_vbox.asc -O- | apt-key add -
-echo "deb http://download.virtualbox.org/virtualbox/debian $REL_NAME contrib" > /etc/apt/sources.list.d/oracle-virtualbox.list
+echo "deb [arch=amd64] http://download.virtualbox.org/virtualbox/debian $REL_NAME contrib" > /etc/apt/sources.list.d/oracle-virtualbox.list
 
 ### Google chrome
-echo "deb [arch=amd64] http://dl.google.com/linux/chrome/deb/ stable main" > /etc/apt/sources.list.d/google-chrome.list
+#wget -q -O - https://dl-ssl.google.com/linux/linux_signing_key.pub | sudo apt-key add -
+#echo "deb [arch=amd64] http://dl.google.com/linux/chrome/deb/ stable main" > /etc/apt/sources.list.d/google-chrome.list
 
 ### remmina
 add-apt-repository ppa:remmina-ppa-team/remmina-next -y
 
 ### Slack
-curl -s https://packagecloud.io/install/repositories/slacktechnologies/slack/script.deb.sh | bash
+wget https://packagecloud.io/install/repositories/slacktechnologies/slack/script.deb.sh -O - | bash
 
 ### Ansible
 apt-key adv --keyserver keyserver.ubuntu.com --recv-keys 93C4A3FD7BB9C367
