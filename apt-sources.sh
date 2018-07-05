@@ -50,3 +50,7 @@ wget https://packagecloud.io/install/repositories/slacktechnologies/slack/script
 ### Ansible
 apt-key adv --keyserver keyserver.ubuntu.com --recv-keys 93C4A3FD7BB9C367
 apt-add-repository "deb http://ppa.launchpad.net/ansible/ansible/ubuntu $REL_NAME main"
+
+### Kubectl
+wget -q https://packages.cloud.google.com/apt/doc/apt-key.gpg -O - | apt-key add -
+echo "deb http://apt.kubernetes.io/ kubernetes-xenial main" > /etc/apt/sources.list.d/kubectl.list

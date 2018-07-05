@@ -29,3 +29,5 @@ lm-sensors
 tmux
 slack-desktop
 ansible
+kubectl
+golang-cfssl
