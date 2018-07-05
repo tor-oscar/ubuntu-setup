@@ -13,6 +13,6 @@ asdf plugin-add dotnet-core # https://github.com/emersonsoares/asdf-dotnet-core.
 ~/.asdf/plugins/nodejs/bin/import-release-team-keyring
 
 asdf install nodejs $(asdf list-all nodejs | tail -n1)
-asdf install erlang $(asdf list-all erlang | tail -n1)
+asdf install erlang $(asdf list-all erlang | grep -v rc | tail -n1)
 asdf install elixir $(asdf list-all elixir | tail -n1)
 asdf install dotnet-core $(asdf list-all dotnet-core | grep -v preview | sort | tail -n1)
