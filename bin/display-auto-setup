@@ -8,5 +8,9 @@ xrandr_opts=$(xrandr | grep ' connected ' | cut -f1 -d' ' | while read dis; do
   prev_dis=$dis
 done | tr '\n' ' ')
 
-echo "Running: xrandr $xrandr_opts"
-xrandr $xrandr_opts
+xrandr_off=$(xrandr | grep ' disconnected ' | cut -f1 -d' ' | while read dis; do
+  echo "--output $dis --off"
+done | tr '\n' ' ')
+
+echo "Running: xrandr $xrandr_opts $xrandr_off"
+xrandr $xrandr_opts $xrandr_off
