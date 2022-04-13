@@ -4,7 +4,12 @@ zsh
 jq
 tmux
 docker
+docker-compose
 unzip
 gcc
 ttf-fira-code
 python-pip
+manjaro-pulse
+pa-applet
+pavucontrol
+snapd
